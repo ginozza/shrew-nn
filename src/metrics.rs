@@ -31,7 +31,7 @@ pub enum Average {
 
 // Confusion matrix
 
-/// NxN confusion matrix. Entry [i][j] = count of samples with true class i
+/// NxN confusion matrix. Entry \[i\]\[j\] = count of samples with true class i
 /// predicted as class j.
 #[derive(Debug, Clone)]
 pub struct ConfusionMatrix {
@@ -414,7 +414,7 @@ pub fn argmax_classes<B: Backend>(logits: &Tensor<B>) -> Result<Vec<usize>> {
 /// Compute accuracy directly from logit tensors and one-hot/class-index targets.
 ///
 /// - If `targets` has shape [batch, n_classes] (one-hot), takes argmax of both.
-/// - If `targets` has shape [batch] or [batch, 1], treats as class indices.
+/// - If `targets` has shape \[batch\] or \[batch, 1\], treats as class indices.
 pub fn tensor_accuracy<B: Backend>(logits: &Tensor<B>, targets: &Tensor<B>) -> Result<f64> {
     let pred_classes = argmax_classes(logits)?;
     let target_data = targets.to_f64_vec()?;

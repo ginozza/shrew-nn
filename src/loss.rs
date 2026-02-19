@@ -256,11 +256,11 @@ pub fn bce_with_logits_loss<B: Backend>(
 
 /// Negative Log-Likelihood Loss with integer class indices.
 ///
-/// Computes: -mean(log_probs[i, target[i]]) for each sample i.
+/// Computes: -mean(log_probs\[i, target\[i\]\]) for each sample i.
 ///
 /// # Arguments
-/// - `log_probs`: log-probabilities [batch, num_classes] (output of log_softmax)
-/// - `targets`: class indices as f64 [batch] — each value in 0..num_classes
+/// - `log_probs`: log-probabilities \[batch, num_classes\] (output of log_softmax)
+/// - `targets`: class indices as f64 \[batch\] — each value in 0..num_classes
 ///
 /// Typically used as: `nll_loss(&logits.log_softmax(1)?, &targets)`
 ///
