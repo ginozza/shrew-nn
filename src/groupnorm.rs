@@ -56,6 +56,7 @@ impl<B: Backend> GroupNorm<B> {
         dtype: DType,
         device: &B::Device,
     ) -> Result<Self> {
+        #[allow(clippy::manual_is_multiple_of)]
         if num_channels % num_groups != 0 {
             return Err(shrew_core::Error::msg(format!(
                 "GroupNorm: num_channels ({}) must be divisible by num_groups ({})",

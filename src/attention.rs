@@ -97,6 +97,7 @@ impl<B: Backend> MultiHeadAttention<B> {
     /// - `dtype`: data type for parameters
     /// - `device`: device to create parameters on
     pub fn new(d_model: usize, num_heads: usize, dtype: DType, device: &B::Device) -> Result<Self> {
+        #[allow(clippy::manual_is_multiple_of)]
         if d_model % num_heads != 0 {
             return Err(shrew_core::Error::msg(format!(
                 "d_model ({}) must be divisible by num_heads ({})",
